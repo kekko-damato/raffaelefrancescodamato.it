@@ -1,0 +1,47 @@
+# Raffaele Francesco D'Amato
+
+> Italian AI Developer and Founder. I build AI chatbots, n8n automations and web dashboards focused on measurable impact — real outputs from day one, not demos.
+
+## About
+
+Raffaele Francesco D'Amato is an Italian AI Developer and Founder based in Italy, working remote-first. He combines artificial intelligence, workflow automation and full-stack development to build practical tools that reduce repetitive work, give teams back control over their data, and accelerate operational decisions.
+
+He's enrolling in a Computer Science degree to consolidate the theory behind production work he already ships. His technical background started in an Aeronautical Technical Institute — precision, complex systems, attention to detail.
+
+Native Italian. Technical English (B2) for AI/API documentation.
+
+## Selected projects
+
+- **Universal Form Compiler** — Chrome extension (TypeScript, MIT) that auto-fills any web form from personal data using OpenAI for semantic mapping. Multi-document, anti-hallucination guards, sensitive-field scrubbing (IBAN, passwords, CVV). 6-phase architecture with local fast-path before AI calls. Open source: https://github.com/raffaelefrancescodamato-ai/universal-form-compiler
+- **Chatbot RDD Italia** (2025) — AI assistant for client requests and corporate document lookup. Python · FastAPI · Supabase. https://rdditalia.com
+- **AquaMind AI** (2025) — Interactive dashboard with automated services and dynamic content. AI assistant + external API integration. https://aquamind-ai.lovable.app/
+- **Web management + Chatbot** (2025) — Login area, client dashboard and chatbot for automatic updates. FastAPI · Supabase · SQL.
+- **RDD Client Dashboard** (2024) — Project monitoring with secure access and notifications. Supabase Auth + DB.
+
+## Capabilities
+
+- **Chatbots & AI Assistants** — Contextual assistants with document retrieval (RAG) and natural responses on real corporate data. Stack: Python, LLM, vector DB, FastAPI.
+- **Automations & Integrations** — Workflows between email, CRM, databases and APIs. Stack: n8n, Python, REST, webhooks, OAuth.
+- **Dashboards & Web Apps** — Platforms with login, user management, real-time KPIs. Stack: FastAPI, Supabase, SQL.
+- **AI Setup & Roadmap** — Discovery, priorities, technical roadmap, time estimates. Output: document + working prototype.
+
+## Stack
+
+Python, TypeScript, FastAPI, Supabase, SQL, n8n, OpenAI API, Anthropic Claude API, Chrome MV3, Vite, Zod.
+
+## Approach
+
+Three principles: surgical efficiency (cut the superfluous), applied intelligence (use AI only where it solves what was previously impossible or too costly), measurable releases (every project starts from a KPI).
+
+## Contact
+
+- Email: raffaelefrancesco.damato@gmail.com
+- GitHub: https://github.com/raffaelefrancescodamato-ai
+- LinkedIn: https://www.linkedin.com/in/raffaele-francesco-d%E2%80%99amato-32a833382/
+- Site (IT): https://raffaelefrancescodamato.it/
+- Site (EN): https://raffaelefrancescodamato.it/en/
+- CV (PDF): https://raffaelefrancescodamato.it/assets/Raffaele_Francesco_DAmato_CV.pdf
+
+## Open to
+
+Concrete collaborations, freelance engagements, internships, technical co-founder roles. Italy or remote.
