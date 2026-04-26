@@ -255,6 +255,10 @@ ul, ol { list-style: none; }
   color: var(--ink);
   margin-bottom: 28px;
   font-weight: 500;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  .hero-role { font-size: 11px; letter-spacing: 1px; }
 }
 .hero-lede {
   font-family: var(--body);
