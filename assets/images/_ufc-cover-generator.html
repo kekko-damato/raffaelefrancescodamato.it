@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>UFC Cover (800×600)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #444; padding: 0; }
+  .cover {
+    width: 800px; height: 600px;
+    background: #fcfaf6;
+    color: #1a1a1a;
+    padding: 56px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover::before {
+    content: ''; position: absolute; bottom: -60px; right: -60px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(140, 90, 43, 0.20), transparent 65%);
+    border-radius: 50%; filter: blur(30px);
+  }
+  .cover > * { position: relative; z-index: 1; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .badge {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: #8c5a2b; font-weight: 700;
+    padding: 6px 12px; background: rgba(140, 90, 43, 0.08);
+    border-radius: 4px;
+  }
+  .ext-icon {
+    width: 56px; height: 56px;
+    background: #1a1a1a;
+    color: #fcfaf6;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-style: italic; font-weight: 700;
+  }
+  .middle { display: flex; flex-direction: column; gap: 18px; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; line-height: 1; letter-spacing: -2px; font-weight: 400;
+  }
+  h1 em { font-style: italic; color: #8c5a2b; }
+  .tagline { font-size: 17px; color: #5a5a5a; max-width: 540px; line-height: 1.5; }
+  .form-mock {
+    background: #fff; border: 1px solid #d4c4a0; border-radius: 6px;
+    padding: 18px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .form-row { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border: 1px solid #e0d6bc; border-radius: 4px; font-size: 13px; background: rgba(22, 163, 74, 0.06); border-color: #16a34a; }
+  .form-label { color: #5a5a5a; min-width: 90px; }
+  .form-value { font-family: 'JetBrains Mono', ui-monospace, monospace; color: #1a1a1a; }
+  .check { color: #16a34a; font-size: 14px; margin-left: auto; font-weight: 700; }
+  .bottom-meta {
+    display: flex; justify-content: space-between; font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: #8c7a55; padding-top: 12px; border-top: 1px solid #d4c4a0;
+  }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="top">
+    <span class="badge">Universal Form Compiler · MIT</span>
+    <div class="ext-icon">U</div>
+  </div>
+  <div class="middle">
+    <h1>Universal Form<br/><em>Compiler</em></h1>
+    <p class="tagline">Auto-fills any web form from your personal data using OpenAI semantic mapping. Multi-document, anti-hallucination guards.</p>
+    <div class="form-mock">
+      <div class="form-row">
+        <span class="form-label">Email</span>
+        <span class="form-value">raffaele@example.it</span>
+        <span class="check">✓</span>
+      </div>
+      <div class="form-row">
+        <span class="form-label">Cognome</span>
+        <span class="form-value">D&rsquo;Amato</span>
+        <span class="check">✓</span>
+      </div>
+      <div class="form-row">
+        <span class="form-label">Telefono</span>
+        <span class="form-value">+39 ••• ••• ••••</span>
+        <span class="check">✓</span>
+      </div>
+    </div>
+  </div>
+  <div class="bottom-meta">
+    <span>// chrome extension · typescript</span>
+    <span>github.com/.../universal-form-compiler</span>
+  </div>
+</div>
+</body>
+</html>
