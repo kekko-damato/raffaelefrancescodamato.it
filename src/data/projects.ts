@@ -13,6 +13,7 @@ export interface Project {
   readme?: string
   cover?: string
   featured?: boolean
+  featuredSub?: string
   title: Record<Lang, string>
   description: Record<Lang, string>
   rowMeta: string
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     readme: 'https://github.com/raffaelefrancescodamato-ai/universal-form-compiler#readme',
     cover: '/assets/images/ufc-cover.png',
     featured: true,
+    featuredSub: 'Chrome Extension · TypeScript · 2026',
     title: { it: 'Universal Form *Compiler*', en: 'Universal Form *Compiler*' },
     description: {
       it: 'Estensione Chrome che compila automaticamente qualsiasi form web partendo dai tuoi dati personali. Multi-documento, anti-allucinazione, mapping semantico via OpenAI con guard rigorosi sui campi sensibili (IBAN, password, CVV). Vanilla TypeScript + Vite + Zod, niente framework UI. Architettura a 6 fasi con AI Pass 1+2 e validazione anti-hallucination.',

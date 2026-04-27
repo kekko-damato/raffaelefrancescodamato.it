@@ -2,7 +2,7 @@
 import type { Lang } from '../i18n/types'
 import type { Project } from '../data/projects'
 import { strings } from '../i18n'
-import { renderEm } from '../i18n/markers'
+import { renderEm, stripEm } from '../i18n/markers'
 
 interface Props { project: Project; lang: Lang; variant: 'featured' | 'row' }
 const { project, lang, variant } = Astro.props
@@ -19,12 +19,12 @@ const rowMetaRest = rowMetaParts.slice(2).join(' · ')
 {variant === 'featured' && (
   <article class="work-featured fade-up">
     <div class="work-featured-cover">
-      {project.cover && <img src={project.cover} alt={`${project.title[lang].replace(/\*/g, '')} — cover`} width="800" height="600" loading="lazy" />}
+      {project.cover && <img src={project.cover} alt={`${stripEm(project.title[lang])} — cover`} width="800" height="600" loading="lazy" />}
     </div>
     <div class="work-featured-body">
       <span class="work-featured-badge">{t.work.featuredBadge}</span>
       <h3 set:html={titleHtml}></h3>
-      <div class="work-featured-sub">Chrome Extension · TypeScript · {project.year}</div>
+      {project.featuredSub && <div class="work-featured-sub">{project.featuredSub}</div>}
       <p class="work-featured-desc">{project.description[lang]}</p>
       <div class="work-stack">
         {project.stack.map(s => <span>{s}</span>)}
