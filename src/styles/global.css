@@ -486,6 +486,13 @@ ul, ol { list-style: none; }
   color: var(--ink);
   line-height: 1.5;
 }
+.about-fact-value small {
+  display: block;
+  margin-top: 6px;
+  color: var(--ink-soft);
+  font-family: var(--ui);
+  font-size: 12px;
+}
 
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }

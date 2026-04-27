@@ -5,9 +5,10 @@ interface Props {
   text: string
   tag?: string
   class?: string
+  id?: string
 }
-const { text, tag = 'span', class: className } = Astro.props
+const { text, tag = 'span', class: className, id } = Astro.props
 const html = renderEm(text)
 const Tag = tag as keyof HTMLElementTagNameMap
 ---
-<Tag class={className} set:html={html}></Tag>
+<Tag class={className} id={id} set:html={html}></Tag>
