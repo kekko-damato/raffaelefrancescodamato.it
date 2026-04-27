@@ -1,0 +1,24 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { projects } from '../data/projects'
+import Md from './Md.astro'
+import ProjectCard from './ProjectCard.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+
+const featured = projects.find(p => p.featured)
+const rest = projects.filter(p => !p.featured)
+---
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="section-num">{t.work.num}</div>
+  <Md tag="h2" id="work-title" text={t.work.title} />
+
+  {featured && <ProjectCard project={featured} lang={lang} variant="featured" />}
+
+  <div class="work-rows">
+    {rest.map(p => <ProjectCard project={p} lang={lang} variant="row" />)}
+  </div>
+</section>

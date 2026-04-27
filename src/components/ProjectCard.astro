@@ -1,0 +1,49 @@
+---
+import type { Lang } from '../i18n/types'
+import type { Project } from '../data/projects'
+import { strings } from '../i18n'
+import { renderEm } from '../i18n/markers'
+
+interface Props { project: Project; lang: Lang; variant: 'featured' | 'row' }
+const { project, lang, variant } = Astro.props
+const t = strings[lang]
+
+const titleHtml = renderEm(project.title[lang])
+
+// rowMeta is a plain string like "2025 · Enterprise · Python · FastAPI · Supabase"
+// Split on ' · ' and rejoin first 2 segments on line 1, rest on line 2.
+const rowMetaParts = project.rowMeta.split(' · ')
+const rowMetaFirst = rowMetaParts.slice(0, 2).join(' · ')
+const rowMetaRest = rowMetaParts.slice(2).join(' · ')
+---
+{variant === 'featured' && (
+  <article class="work-featured fade-up">
+    <div class="work-featured-cover">
+      {project.cover && <img src={project.cover} alt={`${project.title[lang].replace(/\*/g, '')} — cover`} width="800" height="600" loading="lazy" />}
+    </div>
+    <div class="work-featured-body">
+      <span class="work-featured-badge">{t.work.featuredBadge}</span>
+      <h3 set:html={titleHtml}></h3>
+      <div class="work-featured-sub">Chrome Extension · TypeScript · {project.year}</div>
+      <p class="work-featured-desc">{project.description[lang]}</p>
+      <div class="work-stack">
+        {project.stack.map(s => <span>{s}</span>)}
+      </div>
+      <div class="work-featured-cta">
+        {project.github && <a href={project.github} target="_blank" rel="noopener" class="btn-primary">{t.work.githubCta}</a>}
+        {project.readme && <a href={project.readme} target="_blank" rel="noopener" class="btn-link">{t.work.readmeCta}</a>}
+      </div>
+    </div>
+  </article>
+)}
+
+{variant === 'row' && (
+  <div class="work-row fade-up">
+    <div class="work-num">{project.num}</div>
+    <div>
+      <h3 set:html={titleHtml}></h3>
+      <p>{project.description[lang]}</p>
+    </div>
+    <div class="work-row-meta">{rowMetaFirst}<br/>{rowMetaRest}</div>
+  </div>
+)}
