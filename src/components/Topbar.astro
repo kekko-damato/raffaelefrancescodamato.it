@@ -1,11 +1,12 @@
 ---
 import type { Lang } from '../i18n/types'
 import { strings } from '../i18n'
+import { homePathOf } from '../i18n/routes'
 
 interface Props { lang: Lang }
 const { lang } = Astro.props
 const t = strings[lang]
-const homePath = lang === 'it' ? '/' : '/en/'
+const homePath = homePathOf(lang)
 ---
 <header class="topbar" role="banner">
   <a href={homePath} class="topbar-brand"><b>RFD</b><i> · Studio</i></a>
@@ -18,8 +19,8 @@ const homePath = lang === 'it' ? '/' : '/en/'
   </nav>
   <div class="topbar-right">
     <div class="lang-toggle" role="group" aria-label={t.topbar.langLabel}>
-      <a class={lang === 'it' ? 'active' : ''} href="/" aria-current={lang === 'it' ? 'true' : undefined}>IT</a>
-      <a class={lang === 'en' ? 'active' : ''} href="/en/" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+      <a class={lang === 'it' ? 'active' : ''} href={homePathOf('it')} aria-current={lang === 'it' ? 'true' : undefined}>IT</a>
+      <a class={lang === 'en' ? 'active' : ''} href={homePathOf('en')} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
     </div>
   </div>
 </header>

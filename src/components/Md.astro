@@ -1,11 +1,13 @@
 ---
+import { renderEm } from '../i18n/markers'
+
 interface Props {
   text: string
   tag?: string
   class?: string
 }
 const { text, tag = 'span', class: className } = Astro.props
-const html = text.replace(/\*([^*]+)\*/g, '<em>$1</em>')
+const html = renderEm(text)
 const Tag = tag as keyof HTMLElementTagNameMap
 ---
 <Tag class={className} set:html={html}></Tag>

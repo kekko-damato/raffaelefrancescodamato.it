@@ -2,6 +2,8 @@
 import type { Lang } from '../i18n/types'
 import { projects } from '../data/projects'
 import { faqs, plainAnswer } from '../data/faqs'
+import { stripEm } from '../i18n/markers'
+import { homePathOf, ogLocaleOf } from '../i18n/routes'
 
 interface Props { lang: Lang }
 const { lang } = Astro.props
@@ -37,11 +39,11 @@ const alumniNames: Record<Lang, [string, string]> = {
   en: ["University of Computer Science", "Aeronautical Technical Institute"]
 }
 
-const path = lang === 'it' ? '/' : '/en/'
+const path = homePathOf(lang)
 const canonical = SITE + path
 const ogImage = lang === 'it' ? `${SITE}/assets/images/og-image.jpg` : `${SITE}/assets/images/og-image-en.jpg`
-const ogLocale = lang === 'it' ? 'it_IT' : 'en_US'
-const ogLocaleAlt = lang === 'it' ? 'en_US' : 'it_IT'
+const ogLocale = ogLocaleOf(lang)
+const ogLocaleAlt = ogLocaleOf(lang === 'it' ? 'en' : 'it')
 
 const personLD = {
   "@context": "https://schema.org",
@@ -78,9 +80,6 @@ const websiteLD = {
   "publisher": { "@id": `${SITE}/#person` }
 }
 
-// Strip *...* italic markers for plain text JSON-LD
-const stripMarkers = (s: string) => s.replace(/\*([^*]+)\*/g, '$1')
-
 const itemListLD = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -90,7 +89,7 @@ const itemListLD = {
     "position": i + 1,
     "item": p.id === 'ufc' ? {
       "@type": "SoftwareSourceCode",
-      "name": stripMarkers(p.title[lang]),
+      "name": stripEm(p.title[lang]),
       "description": p.description[lang],
       "programmingLanguage": "TypeScript",
       "codeRepository": p.github,
@@ -98,7 +97,7 @@ const itemListLD = {
       "url": p.github
     } : {
       "@type": "CreativeWork",
-      "name": stripMarkers(p.title[lang]),
+      "name": stripEm(p.title[lang]),
       "description": p.description[lang],
       ...(p.href ? { "url": p.href } : {})
     }

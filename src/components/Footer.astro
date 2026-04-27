@@ -1,11 +1,12 @@
 ---
 import type { Lang } from '../i18n/types'
 import { strings } from '../i18n'
+import { otherPathOf } from '../i18n/routes'
 
 interface Props { lang: Lang }
 const { lang } = Astro.props
 const t = strings[lang]
-const otherPath = lang === 'it' ? '/en/' : '/'
+const otherPath = otherPathOf(lang)
 ---
 <footer class="footer">
   <span>{t.footer.rights}</span>
