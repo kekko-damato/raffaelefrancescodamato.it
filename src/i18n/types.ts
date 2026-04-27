@@ -1,5 +1,16 @@
 export type Lang = 'it' | 'en'
 
+/**
+ * Shape of all UI strings for a given locale.
+ *
+ * String values may contain `*emphasis*` markers that components MUST render
+ * through the `Md` helper component (see `src/components/Md.astro`), which
+ * expands `*x*` into `<em>x</em>`. No other Markdown is supported.
+ *
+ * Locale dictionaries (`it.ts`, `en.ts`) are typed as `UIStrings` to enforce
+ * structural parity at compile time — a missing or extra key in either locale
+ * is a TypeScript error.
+ */
 export interface UIStrings {
   topbar: {
     nav: { about: string; work: string; capabilities: string; approach: string; contact: string }
