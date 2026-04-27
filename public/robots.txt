@@ -1,5 +1,5 @@
 # robots.txt — raffaelefrancescodamato.it
-# Updated 2026-04-26
+# Updated 2026-04-27
 
 User-agent: *
 Allow: /
@@ -48,4 +48,4 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-Sitemap: https://raffaelefrancescodamato.it/sitemap.xml
+Sitemap: https://www.raffaelefrancescodamato.it/sitemap.xml
