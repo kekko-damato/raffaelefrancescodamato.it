@@ -1,0 +1,151 @@
+---
+import type { Lang } from '../i18n/types'
+import { projects } from '../data/projects'
+import { faqs, plainAnswer } from '../data/faqs'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+
+const SITE = 'https://www.raffaelefrancescodamato.it'
+
+const titles: Record<Lang, string> = {
+  it: "Raffaele Francesco D'Amato — AI Developer & Founder | Chatbot · Automazioni · Dashboard",
+  en: "Raffaele Francesco D'Amato — AI Developer & Founder | Chatbots · Automations · Dashboards"
+}
+const descriptions: Record<Lang, string> = {
+  it: "AI Developer e Founder italiano. Costruisco chatbot AI, automazioni n8n e dashboard web con impatto misurabile. Universal Form Compiler open source. Portfolio, progetti e CV scaricabile.",
+  en: "Italian AI Developer and Founder. I build AI chatbots, n8n automations and web dashboards with measurable impact. Universal Form Compiler open source. Portfolio, projects and downloadable CV."
+}
+const ogDescriptions: Record<Lang, string> = {
+  it: "Chatbot AI, automazioni e dashboard con impatto misurabile. Universal Form Compiler open source. Portfolio e progetti.",
+  en: "AI chatbots, automations and dashboards with measurable impact. Universal Form Compiler open source. Portfolio and projects."
+}
+const keywords: Record<Lang, string> = {
+  it: "Raffaele Francesco D'Amato, AI Developer Italia, automazioni n8n, chatbot AI, dashboard web, Universal Form Compiler, FastAPI, Supabase, Python, TypeScript, RAG, LLM, founder",
+  en: "Raffaele Francesco D'Amato, Italian AI Developer, n8n automations, AI chatbot, web dashboard, Universal Form Compiler, FastAPI, Supabase, Python, TypeScript, RAG, LLM, founder"
+}
+const personDescriptions: Record<Lang, string> = {
+  it: "AI Developer italiano specializzato in chatbot AI, automazioni e dashboard web. Founder e creatore del progetto open source Universal Form Compiler.",
+  en: "Italian AI Developer specializing in AI chatbots, automations and web dashboards. Founder and creator of the open-source Universal Form Compiler project."
+}
+const knowsAbout: Record<Lang, string[]> = {
+  it: ["Intelligenza Artificiale", "Large Language Models", "Retrieval Augmented Generation", "Chatbot AI", "Automazioni n8n", "FastAPI", "Supabase", "Python", "TypeScript", "Chrome Extensions", "OpenAI API", "Anthropic Claude API", "Sviluppo Full-Stack", "Web Development"],
+  en: ["Artificial Intelligence", "Large Language Models", "Retrieval Augmented Generation", "AI Chatbots", "n8n Automations", "FastAPI", "Supabase", "Python", "TypeScript", "Chrome Extensions", "OpenAI API", "Anthropic Claude API", "Full-Stack Development", "Web Development"]
+}
+const alumniNames: Record<Lang, [string, string]> = {
+  it: ["Università di Informatica", "Istituto Tecnico Aeronautico"],
+  en: ["University of Computer Science", "Aeronautical Technical Institute"]
+}
+
+const path = lang === 'it' ? '/' : '/en/'
+const canonical = SITE + path
+const ogImage = lang === 'it' ? `${SITE}/assets/images/og-image.jpg` : `${SITE}/assets/images/og-image-en.jpg`
+const ogLocale = lang === 'it' ? 'it_IT' : 'en_US'
+const ogLocaleAlt = lang === 'it' ? 'en_US' : 'it_IT'
+
+const personLD = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${SITE}/#person`,
+  "name": "Raffaele Francesco D'Amato",
+  "alternateName": "RFD",
+  "jobTitle": "AI Developer & Founder",
+  "description": personDescriptions[lang],
+  "email": "mailto:raffaelefrancesco.damato@gmail.com",
+  "url": canonical,
+  "image": ogImage,
+  "sameAs": [
+    "https://github.com/raffaelefrancescodamato-ai",
+    "https://www.linkedin.com/in/raffaele-francesco-d%E2%80%99amato-32a833382/",
+    "https://www.instagram.com/_kekkodamato_/"
+  ],
+  "knowsAbout": knowsAbout[lang],
+  "alumniOf": [
+    { "@type": "EducationalOrganization", "name": alumniNames[lang][0] },
+    { "@type": "EducationalOrganization", "name": alumniNames[lang][1] }
+  ],
+  "nationality": { "@type": "Country", "name": "Italy" },
+  "workLocation": { "@type": "Country", "name": "Italy" }
+}
+
+const websiteLD = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${SITE}/#website`,
+  "url": canonical,
+  "name": "Raffaele Francesco D'Amato — AI Developer & Founder",
+  "inLanguage": lang === 'it' ? ['it', 'en'] : ['en', 'it'],
+  "publisher": { "@id": `${SITE}/#person` }
+}
+
+// Strip *...* italic markers for plain text JSON-LD
+const stripMarkers = (s: string) => s.replace(/\*([^*]+)\*/g, '$1')
+
+const itemListLD = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Selected Work — Raffaele Francesco D'Amato",
+  "itemListElement": projects.map((p, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": p.id === 'ufc' ? {
+      "@type": "SoftwareSourceCode",
+      "name": stripMarkers(p.title[lang]),
+      "description": p.description[lang],
+      "programmingLanguage": "TypeScript",
+      "codeRepository": p.github,
+      "license": "https://opensource.org/licenses/MIT",
+      "url": p.github
+    } : {
+      "@type": "CreativeWork",
+      "name": stripMarkers(p.title[lang]),
+      "description": p.description[lang],
+      ...(p.href ? { "url": p.href } : {})
+    }
+  }))
+}
+
+const faqLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.q[lang],
+    "acceptedAnswer": { "@type": "Answer", "text": plainAnswer(faq, lang) }
+  }))
+}
+---
+<title>{titles[lang]}</title>
+<meta name="description" content={descriptions[lang]} />
+<meta name="author" content="Raffaele Francesco D'Amato" />
+<meta name="keywords" content={keywords[lang]} />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="it" href={`${SITE}/`} />
+<link rel="alternate" hreflang="en" href={`${SITE}/en/`} />
+<link rel="alternate" hreflang="x-default" href={`${SITE}/`} />
+
+<meta property="og:type" content="profile" />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlt} />
+<meta property="og:title" content="Raffaele Francesco D'Amato — AI Developer & Founder" />
+<meta property="og:description" content={ogDescriptions[lang]} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content="Raffaele Francesco D'Amato" />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Raffaele Francesco D'Amato — AI Developer & Founder" />
+<meta property="profile:first_name" content="Raffaele Francesco" />
+<meta property="profile:last_name" content="D'Amato" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Raffaele Francesco D'Amato — AI Developer & Founder" />
+<meta name="twitter:description" content={ogDescriptions[lang]} />
+<meta name="twitter:image" content={ogImage} />
+
+<script type="application/ld+json" set:html={JSON.stringify(personLD)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteLD)} />
+<script type="application/ld+json" set:html={JSON.stringify(itemListLD)} />
+<script type="application/ld+json" set:html={JSON.stringify(faqLD)} />

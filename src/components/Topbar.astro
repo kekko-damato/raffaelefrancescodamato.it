@@ -1,0 +1,25 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+const homePath = lang === 'it' ? '/' : '/en/'
+---
+<header class="topbar" role="banner">
+  <a href={homePath} class="topbar-brand"><b>RFD</b><i> · Studio</i></a>
+  <nav class="topbar-nav" aria-label={lang === 'it' ? 'Navigazione principale' : 'Main navigation'}>
+    <a href="#about">{t.topbar.nav.about}</a>
+    <a href="#work">{t.topbar.nav.work}</a>
+    <a href="#capabilities">{t.topbar.nav.capabilities}</a>
+    <a href="#approach">{t.topbar.nav.approach}</a>
+    <a href="#contact">{t.topbar.nav.contact}</a>
+  </nav>
+  <div class="topbar-right">
+    <div class="lang-toggle" role="group" aria-label={t.topbar.langLabel}>
+      <a class={lang === 'it' ? 'active' : ''} href="/" aria-current={lang === 'it' ? 'true' : undefined}>IT</a>
+      <a class={lang === 'en' ? 'active' : ''} href="/en/" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+    </div>
+  </div>
+</header>

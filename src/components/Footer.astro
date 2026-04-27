@@ -1,0 +1,17 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+const otherPath = lang === 'it' ? '/en/' : '/'
+---
+<footer class="footer">
+  <span>{t.footer.rights}</span>
+  <div class="footer-meta">
+    <a href="/llms.txt">{t.footer.links.llms}</a>
+    <a href="/sitemap.xml">{t.footer.links.sitemap}</a>
+    <a href={otherPath}>{t.footer.links.otherLang}</a>
+  </div>
+</footer>
