@@ -1,0 +1,44 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import Md from './Md.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-left">
+    <div class="hero-pretitle"><span class="label">{t.hero.pretitle}</span></div>
+    <h1 id="hero-title">
+      Raffaele<br/>
+      Francesco<br/>
+      <span class="italic">D&rsquo;Amato</span>
+    </h1>
+    <div class="hero-rule"></div>
+    <p class="hero-role">{t.hero.role}</p>
+    <Md tag="p" class="hero-lede" text={t.hero.lede} />
+    <div class="hero-cta">
+      <a href="/assets/Raffaele_Francesco_DAmato_CV.pdf" target="_blank" rel="noopener" class="btn-primary">{t.hero.cta.primary}</a>
+      <a href="#work" class="btn-link">{t.hero.cta.secondary}</a>
+    </div>
+  </div>
+  <aside class="hero-meta" aria-label="Metadata">
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">{t.hero.meta.status.label}</div>
+      <div class="hero-meta-value"><span class="availability-dot" aria-hidden="true"></span><Md text={t.hero.meta.status.value} /></div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">{t.hero.meta.stack.label}</div>
+      <div class="hero-meta-value">{t.hero.meta.stack.value}</div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">{t.hero.meta.featured.label}</div>
+      <div class="hero-meta-value"><Md text={t.hero.meta.featured.value} /><small>{t.hero.meta.featured.sub}</small></div>
+    </div>
+    <div class="hero-meta-block">
+      <div class="hero-meta-label">{t.hero.meta.based.label}</div>
+      <div class="hero-meta-value">{t.hero.meta.based.value}</div>
+    </div>
+  </aside>
+</section>

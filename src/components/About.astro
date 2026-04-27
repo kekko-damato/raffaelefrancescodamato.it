@@ -1,0 +1,37 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { renderEm } from '../i18n/markers'
+import Md from './Md.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="section-num">{t.about.num}</div>
+  <h2 id="about-title" set:html={renderEm(t.about.title)}></h2>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      {t.about.body.map(paragraph => <Md tag="p" text={paragraph} />)}
+    </div>
+    <aside class="about-facts fade-up">
+      <div class="about-fact">
+        <div class="about-fact-label">{t.about.facts.based.label}</div>
+        <div class="about-fact-value">{t.about.facts.based.value}</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">{t.about.facts.languages.label}</div>
+        <div class="about-fact-value">{t.about.facts.languages.value}</div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">{t.about.facts.education.label}</div>
+        <div class="about-fact-value">{t.about.facts.education.value}<br/><small style="color: var(--ink-soft); font-family: var(--ui); font-size: 12px;">{t.about.facts.education.sub}</small></div>
+      </div>
+      <div class="about-fact">
+        <div class="about-fact-label">{t.about.facts.currently.label}</div>
+        <div class="about-fact-value">{t.about.facts.currently.value}<br/><small style="color: var(--ink-soft); font-family: var(--ui); font-size: 12px;">{t.about.facts.currently.sub}</small></div>
+      </div>
+    </aside>
+  </div>
+</section>
