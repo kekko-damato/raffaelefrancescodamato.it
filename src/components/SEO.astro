@@ -57,7 +57,7 @@ const personLD = {
   "url": canonical,
   "image": ogImage,
   "sameAs": [
-    "https://github.com/raffaelefrancescodamato-ai",
+    "https://github.com/kekko-damato",
     "https://www.linkedin.com/in/raffaele-francesco-d%E2%80%99amato-32a833382/",
     "https://www.instagram.com/_kekkodamato_/"
   ],
@@ -87,13 +87,13 @@ const itemListLD = {
   "itemListElement": projects.map((p, i) => ({
     "@type": "ListItem",
     "position": i + 1,
-    "item": p.id === 'ufc' ? {
+    "item": p.tag === 'Open Source' && p.github ? {
       "@type": "SoftwareSourceCode",
       "name": stripEm(p.title[lang]),
       "description": p.description[lang],
-      "programmingLanguage": "TypeScript",
+      ...(p.programmingLanguage ? { "programmingLanguage": p.programmingLanguage } : {}),
       "codeRepository": p.github,
-      "license": "https://opensource.org/licenses/MIT",
+      ...(p.licenseUrl ? { "license": p.licenseUrl } : {}),
       "url": p.github
     } : {
       "@type": "CreativeWork",

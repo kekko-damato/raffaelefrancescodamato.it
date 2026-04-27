@@ -14,6 +14,10 @@ export interface Project {
   cover?: string
   featured?: boolean
   featuredSub?: string
+  /** Programming language for schema.org SoftwareSourceCode (open-source projects). */
+  programmingLanguage?: string
+  /** SPDX license URL for schema.org SoftwareSourceCode. */
+  licenseUrl?: string
   title: Record<Lang, string>
   description: Record<Lang, string>
   rowMeta: string
@@ -21,26 +25,46 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'ufc',
+    id: 'nonna',
     num: 'N°01',
     year: 2026,
     tag: 'Open Source',
-    stack: ['TypeScript', 'Vite', 'Zod', 'Mammoth', 'Vitest', 'OpenAI API', 'Chrome MV3'],
-    github: 'https://github.com/raffaelefrancescodamato-ai/universal-form-compiler',
-    readme: 'https://github.com/raffaelefrancescodamato-ai/universal-form-compiler#readme',
-    cover: '/assets/images/ufc-cover.png',
+    stack: ['Python', 'Markdown', 'Bash', 'Claude Code', 'Anthropic API', 'MIT'],
+    github: 'https://github.com/kekko-damato/nonna',
+    readme: 'https://github.com/kekko-damato/nonna#readme',
+    cover: '/assets/images/nonna-cover.jpg',
     featured: true,
-    featuredSub: 'Chrome Extension · TypeScript · 2026',
+    featuredSub: 'Claude Code Skill · Python · MIT · 2026',
+    programmingLanguage: 'Python',
+    licenseUrl: 'https://opensource.org/licenses/MIT',
+    title: { it: '*Nonna*', en: '*Nonna*' },
+    description: {
+      it: 'Skill per Claude Code che fa code review come una nonna italiana: niente sycophancy, push-back sulle richieste con red flag, occhio alla salute del codice nel lungo periodo. 3 modi (Full / Lite / Del Sud), 4 slash command, eval pubblici riproducibili. Riduzione sycophancy del 50%, push-back 12.5× rispetto a default Claude su prompt rischiosi.',
+      en: 'Claude Code skill that delivers code review like an Italian grandmother: no sycophancy, push-back on red-flag requests, long-term code health awareness. 3 modes (Full / Lite / Del Sud), 4 slash commands, public reproducible evals. 50% sycophancy reduction, 12.5× more push-back vs default Claude on risky prompts.'
+    },
+    rowMeta: '2026 · Open Source · Python · Markdown · Bash'
+  },
+  {
+    id: 'ufc',
+    num: 'N°02',
+    year: 2026,
+    tag: 'Open Source',
+    stack: ['TypeScript', 'Vite', 'Zod', 'Mammoth', 'Vitest', 'OpenAI API', 'Chrome MV3'],
+    github: 'https://github.com/kekko-damato/universal-form-compiler',
+    readme: 'https://github.com/kekko-damato/universal-form-compiler#readme',
+    cover: '/assets/images/ufc-cover.png',
+    programmingLanguage: 'TypeScript',
+    licenseUrl: 'https://opensource.org/licenses/MIT',
     title: { it: 'Universal Form *Compiler*', en: 'Universal Form *Compiler*' },
     description: {
       it: 'Estensione Chrome che compila automaticamente qualsiasi form web partendo dai tuoi dati personali. Multi-documento, anti-allucinazione, mapping semantico via OpenAI con guard rigorosi sui campi sensibili (IBAN, password, CVV). Vanilla TypeScript + Vite + Zod, niente framework UI. Architettura a 6 fasi con AI Pass 1+2 e validazione anti-hallucination.',
       en: 'Chrome extension that auto-fills any web form from your personal data. Multi-document, anti-hallucination guards, semantic mapping via OpenAI with strict scrubbing on sensitive fields (IBAN, passwords, CVV). Vanilla TypeScript + Vite + Zod, no UI framework. 6-phase architecture with AI Pass 1+2 and anti-hallucination validation.'
     },
-    rowMeta: '2026 · Chrome Ext'
+    rowMeta: '2026 · Open Source · TypeScript · Chrome MV3 · OpenAI'
   },
   {
     id: 'rdd-chatbot',
-    num: 'N°02',
+    num: 'N°03',
     year: 2025,
     tag: 'Enterprise',
     stack: ['Python', 'FastAPI', 'Supabase'],
@@ -54,7 +78,7 @@ export const projects: Project[] = [
   },
   {
     id: 'aquamind',
-    num: 'N°03',
+    num: 'N°04',
     year: 2025,
     tag: 'SaaS',
     stack: ['API', 'Database', 'Dashboard'],
@@ -68,7 +92,7 @@ export const projects: Project[] = [
   },
   {
     id: 'gestionale',
-    num: 'N°04',
+    num: 'N°05',
     year: 2025,
     tag: 'Enterprise',
     stack: ['FastAPI', 'Supabase', 'SQL'],
@@ -81,7 +105,7 @@ export const projects: Project[] = [
   },
   {
     id: 'rdd-dashboard',
-    num: 'N°05',
+    num: 'N°06',
     year: 2024,
     tag: 'Internal',
     stack: ['Supabase Auth', 'DB'],

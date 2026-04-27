@@ -15,7 +15,7 @@ const en: UIStrings = {
     meta: {
       status: { label: 'Status', value: 'Open to *collaborations*' },
       stack: { label: 'Main stack', value: 'Python · TypeScript · FastAPI · Supabase · n8n · LLM/RAG' },
-      featured: { label: 'Featured project', value: 'Universal Form *Compiler*', sub: 'Chrome Extension · TypeScript · MIT' },
+      featured: { label: 'Featured project', value: '*Nonna*', sub: 'Claude Code Skill · Python · MIT' },
       based: { label: 'Based', value: 'Italy · Remote-first' }
     }
   },
@@ -31,7 +31,7 @@ const en: UIStrings = {
       based: { label: 'Based', value: 'Italy · Remote-first' },
       languages: { label: 'Languages', value: 'Italian · English (technical B2)' },
       education: { label: 'Education', value: 'Computer Science (enrolling)', sub: 'Aeronautical Technical Institute' },
-      currently: { label: 'Currently', value: 'Universal Form Compiler', sub: 'MIT · TypeScript · 2026' }
+      currently: { label: 'Currently', value: 'Nonna', sub: 'Claude Code Skill · MIT · 2026' }
     }
   },
   work: {

@@ -51,8 +51,8 @@ export const faqs: FAQ[] = [
     id: 'code',
     q: { it: 'Posso vedere il tuo codice?', en: 'Can I see your code?' },
     a: {
-      it: 'Sì. Universal Form Compiler è open source su GitHub con licenza MIT — <a href="https://github.com/raffaelefrancescodamato-ai/universal-form-compiler" target="_blank" rel="noopener">github.com/raffaelefrancescodamato-ai/universal-form-compiler</a>. Per progetti aziendali sotto NDA condivido architettura sintetica e demo.',
-      en: 'Yes. Universal Form Compiler is open source on GitHub under MIT — <a href="https://github.com/raffaelefrancescodamato-ai/universal-form-compiler" target="_blank" rel="noopener">github.com/raffaelefrancescodamato-ai/universal-form-compiler</a>. For NDA enterprise projects I share architecture summaries and demos.'
+      it: 'Sì. <a href="https://github.com/kekko-damato/nonna" target="_blank" rel="noopener">Nonna</a> (skill per Claude Code) e <a href="https://github.com/kekko-damato/universal-form-compiler" target="_blank" rel="noopener">Universal Form Compiler</a> (estensione Chrome) sono open source su GitHub con licenza MIT. Per progetti aziendali sotto NDA condivido architettura sintetica e demo.',
+      en: 'Yes. <a href="https://github.com/kekko-damato/nonna" target="_blank" rel="noopener">Nonna</a> (Claude Code skill) and <a href="https://github.com/kekko-damato/universal-form-compiler" target="_blank" rel="noopener">Universal Form Compiler</a> (Chrome extension) are open source on GitHub under MIT. For NDA enterprise projects I share architecture summaries and demos.'
     }
   }
 ]

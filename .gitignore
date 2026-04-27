@@ -6,6 +6,9 @@
 # Brainstorming workspace (private)
 .superpowers/
 
+# Claude Code session state
+.claude/
+
 # Editor
 .vscode/
 .idea/
