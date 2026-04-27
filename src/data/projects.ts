@@ -15,7 +15,7 @@ export interface Project {
   featured?: boolean
   title: Record<Lang, string>
   description: Record<Lang, string>
-  rowMeta: Record<Lang, string>
+  rowMeta: string
 }
 
 export const projects: Project[] = [
@@ -34,7 +34,7 @@ export const projects: Project[] = [
       it: 'Estensione Chrome che compila automaticamente qualsiasi form web partendo dai tuoi dati personali. Multi-documento, anti-allucinazione, mapping semantico via OpenAI con guard rigorosi sui campi sensibili (IBAN, password, CVV). Vanilla TypeScript + Vite + Zod, niente framework UI. Architettura a 6 fasi con AI Pass 1+2 e validazione anti-hallucination.',
       en: 'Chrome extension that auto-fills any web form from your personal data. Multi-document, anti-hallucination guards, semantic mapping via OpenAI with strict scrubbing on sensitive fields (IBAN, passwords, CVV). Vanilla TypeScript + Vite + Zod, no UI framework. 6-phase architecture with AI Pass 1+2 and anti-hallucination validation.'
     },
-    rowMeta: { it: '2026 · Chrome Ext', en: '2026 · Chrome Ext' }
+    rowMeta: '2026 · Chrome Ext'
   },
   {
     id: 'rdd-chatbot',
@@ -48,7 +48,7 @@ export const projects: Project[] = [
       it: 'Assistente AI integrato per richieste clienti e consultazione documenti aziendali, con gestione dati automatizzata. Riduzione richieste ripetitive e accesso più rapido alle informazioni.',
       en: 'AI assistant integrated for client requests and corporate document lookup, with automated data handling. Reduced repetitive requests, faster access to information.'
     },
-    rowMeta: { it: '2025 · Enterprise · Python · FastAPI · Supabase', en: '2025 · Enterprise · Python · FastAPI · Supabase' }
+    rowMeta: '2025 · Enterprise · Python · FastAPI · Supabase'
   },
   {
     id: 'aquamind',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       it: 'Dashboard interattiva con servizi automatizzati e contenuti dinamici. Piattaforma con assistente AI e integrazione con API esterne per gestione semplice dei contenuti.',
       en: 'Interactive dashboard with automated services and dynamic content. Platform with AI assistant and external API integration for simple content management.'
     },
-    rowMeta: { it: '2025 · SaaS · API · Database · Dashboard', en: '2025 · SaaS · API · Database · Dashboard' }
+    rowMeta: '2025 · SaaS · API · Database · Dashboard'
   },
   {
     id: 'gestionale',
@@ -75,7 +75,7 @@ export const projects: Project[] = [
       it: 'Area login, dashboard clienti e chatbot per aggiornamenti automatici. Centralizza clienti, avanzamento lavori e comunicazioni — meno aggiornamenti manuali, processo più ordinato.',
       en: 'Login area, client dashboard and chatbot for automatic updates. Centralizes clients, work progress and communications — fewer manual updates, cleaner process.'
     },
-    rowMeta: { it: '2025 · Enterprise · FastAPI · Supabase · SQL', en: '2025 · Enterprise · FastAPI · Supabase · SQL' }
+    rowMeta: '2025 · Enterprise · FastAPI · Supabase · SQL'
   },
   {
     id: 'rdd-dashboard',
@@ -88,6 +88,6 @@ export const projects: Project[] = [
       it: 'Monitoraggio stato progetti con accesso protetto, notifiche e interfaccia intuitiva. Riduzione comunicazioni a ping-pong e monitoraggio continuo.',
       en: 'Project status monitoring with secure access, notifications and intuitive interface. Cuts ping-pong communications, continuous monitoring.'
     },
-    rowMeta: { it: '2024 · Internal · Supabase Auth + DB', en: '2024 · Internal · Supabase Auth + DB' }
+    rowMeta: '2024 · Internal · Supabase Auth + DB'
   }
 ]

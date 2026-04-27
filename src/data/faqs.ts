@@ -57,9 +57,18 @@ export const faqs: FAQ[] = [
   }
 ]
 
-// Plain-text version for JSON-LD FAQPage (no HTML tags)
+/**
+ * Plain-text projection of `faq.a` for schema.org FAQPage JSON-LD output.
+ *
+ * The HTML allowed in `faq.a` today is a strict subset: `<strong>` and `<a>`.
+ * This stripper removes any HTML tag (so adding new tags to the answers
+ * doesn't silently break JSON-LD) and decodes the most common entities.
+ */
 export function plainAnswer(faq: FAQ, lang: Lang): string {
   return faq.a[lang]
-    .replace(/<strong>([^<]+)<\/strong>/g, '$1')
-    .replace(/<a [^>]+>([^<]+)<\/a>/g, '$1')
+    .replace(/<\/?[a-z][^>]*>/gi, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
 }
