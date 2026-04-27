@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { faqs } from '../data/faqs'
+import Md from './Md.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="section" id="faq" aria-labelledby="faq-title">
+  <div class="section-num">{t.faq.num}</div>
+  <Md tag="h2" id="faq-title" text={t.faq.title} />
+  <div class="faq-list">
+    {faqs.map((faq, i) => (
+      <div class="faq-item" data-open="false">
+        <button class="faq-question" aria-expanded="false" aria-controls={`faq-answer-${i + 1}`}>
+          <h3>{faq.q[lang]}</h3>
+          <span class="faq-toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-answer" id={`faq-answer-${i + 1}`}>
+          <p set:html={faq.a[lang]}></p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

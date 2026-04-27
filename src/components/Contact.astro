@@ -1,0 +1,23 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { renderEm } from '../i18n/markers'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="section-num">{t.contact.num}</div>
+  <h2 id="contact-title" style="text-align: center; margin-inline: auto;" set:html={renderEm(t.contact.title)}></h2>
+  <div class="contact-block">
+    <p class="contact-lead">{t.contact.lede}</p>
+    <a href="mailto:raffaelefrancesco.damato@gmail.com" class="contact-email">raffaelefrancesco.damato@gmail.com</a>
+    <div class="contact-social">
+      <a href="https://github.com/raffaelefrancescodamato-ai" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/raffaele-francesco-d%E2%80%99amato-32a833382/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/_kekkodamato_/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="contact-quote">{t.contact.quote}</p>
+  </div>
+</section>

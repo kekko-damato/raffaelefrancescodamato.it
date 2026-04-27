@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { renderEm } from '../i18n/markers'
+import { capabilities } from '../data/capabilities'
+import Md from './Md.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="section" id="capabilities" aria-labelledby="capabilities-title">
+  <div class="section-num">{t.capabilities.num}</div>
+  <Md tag="h2" id="capabilities-title" text={t.capabilities.title} />
+  <div class="capabilities-grid">
+    {capabilities.map(c => (
+      <article class="capability fade-up">
+        <div class="capability-num">{c.num}</div>
+        <h3 set:html={renderEm(c.title[lang])}></h3>
+        <p>{c.body[lang]}</p>
+        <div class="capability-stack">
+          {c.stack.map(s => <span>{s}</span>)}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

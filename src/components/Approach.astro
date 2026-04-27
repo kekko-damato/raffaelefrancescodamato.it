@@ -1,0 +1,27 @@
+---
+import type { Lang } from '../i18n/types'
+import { strings } from '../i18n'
+import { approach } from '../data/approach'
+import Md from './Md.astro'
+
+interface Props { lang: Lang }
+const { lang } = Astro.props
+const t = strings[lang]
+---
+<section class="section" id="approach" aria-labelledby="approach-title">
+  <div class="section-num">{t.approach.num}</div>
+  <Md tag="h2" id="approach-title" text={t.approach.title} />
+  <div class="approach-list">
+    {approach.map(item => (
+      <article class="approach-item fade-up">
+        <div class="approach-num">{item.num}</div>
+        <div>
+          <h3>{item.title[lang]}</h3>
+          <p class="approach-claim">{item.claim[lang]}</p>
+          <p class="approach-body">{item.body[lang]}</p>
+          <p class="approach-example">{item.example[lang]}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
